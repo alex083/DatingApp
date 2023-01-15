@@ -1,4 +1,5 @@
 using API.Extensions;
+using API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 // services container
@@ -10,6 +11,9 @@ builder.Services.AddIdentityServices(builder.Configuration);
 
 // middleware
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleware>();
+
 
 app.UseHttpsRedirection();
 app.UseRouting();
