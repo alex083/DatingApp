@@ -3,21 +3,19 @@ using System;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace API.Migrations
+namespace API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230218234134_InitialCreate")]
-    partial class InitialCreate
+    partial class DataContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.11");
+            modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
 
             modelBuilder.Entity("API.Entities.AppUser", b =>
                 {
@@ -78,7 +76,7 @@ namespace API.Migrations
                     b.Property<int>("AppUserId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("IsMain")
+                    b.Property<bool>("IsMain")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("PublicId")
